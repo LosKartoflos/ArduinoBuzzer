@@ -2,6 +2,7 @@
 #define BUZZERSCENARIO_H
 
 #include <Arduino.h>
+#include "avr8-stub.h"
 #include <HardwareSerial.h>
 
 

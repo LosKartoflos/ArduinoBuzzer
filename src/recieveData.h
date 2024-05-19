@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <RCSwitch.h>
+#include "avr8-stub.h"
 
 int loopRecieveData();
 void setupRecieveData();
