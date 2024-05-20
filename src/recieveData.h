@@ -3,9 +3,9 @@
 
 #include <Arduino.h>
 #include <RCSwitch.h>
-#include "avr8-stub.h"
+// #include "avr8-stub.h"
 
-int loopRecieveData();
+unsigned long loopRecieveData();
 void setupRecieveData();
 
 #endif
