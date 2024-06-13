@@ -27,6 +27,20 @@ bool arrayIncludeElement(long int array[], int cols, long int value, int *col) {
 
 int buzzerIndex, buzzerButtonIndex;
 
+int buzzerMode = 0; //0 = quiz mode; 1 = firstCome first serve;
+int getBuzzerMode(){
+  return buzzerMode;
+}
+
+bool setBuzzerMode(int mode){
+  if(mode >= 3)
+    return false;
+
+  buzzerMode = mode;
+  return true;
+}
+
+
 bool buzzerActive[5] ={ false, false, false, false,false};
 
 long int buzzerAdresses[5][4] = {{6364833,6364834,6364836,6364840},
@@ -66,9 +80,17 @@ void parseBuzzer(unsigned long buzzerData){
         Serial.print(buzzerIndex);
         Serial.print(" + buzzerButtonIndex ");
         Serial.println(buzzerButtonIndex);
+
+        displayTeamAnswer(buzzerIndex, buzzerButtonIndex);
     } else if (arrayIncludeElement((long int *)masterBuzzerAdress,  4, (long int) buzzerData, &buzzerButtonIndex)){
         Serial.print(" Master at: ");
         Serial.println(buzzerButtonIndex);
+        
+        if(setBuzzerMode(buzzerButtonIndex))
+        {
+          resetDisplay();
+        }
+
     } else {
 
     }

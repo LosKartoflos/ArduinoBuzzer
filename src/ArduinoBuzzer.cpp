@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <recieveData.h>
 #include <buzzerScenario.h>
+#include <LCDController.h>
 // #include "avr8-stub.h"
 
 
@@ -14,10 +15,12 @@ int *lastDataPtr;
 void setup() {
   //  debug_init();
   //Serial.begin(9600); // Initialize serial communication
+    Serial.begin(9600);
     setupRecieveData();
-
+    setupLCDController();
     // lastDataPtr = &lastData;
     // receivedDataptr = &receivedData;
+    Serial.println("Setup finished");
 
 }
 
@@ -29,7 +32,7 @@ void loop() {
     //Serial.println(receivedData);
     parseBuzzer(receivedData);
   }
-    
+  loopLCDController();
     //*receivedDataptr = loopRecieveData();
     // Serial.print ("receivedDataptr ");
     // Serial.println (receivedDataptr);

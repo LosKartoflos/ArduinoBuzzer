@@ -4,7 +4,7 @@ RCSwitch mySwitch = RCSwitch();
 int lastMessat = 0;
 
 void setupRecieveData() {
-  Serial.begin(9600); // Initialize serial communication
+ // Serial.begin(9600); // Initialize serial communication
   mySwitch.enableReceive(0); // Receiver on interrupt 0 => that is pin #2
 }
 
